@@ -1,4 +1,4 @@
-import { PollyClient, VoiceId } from "@aws-sdk/client-polly";
+import { PollyClient, VoiceId, Engine } from "@aws-sdk/client-polly";
 
 export const client = new PollyClient({
   region: "us-west-2",
@@ -8,4 +8,4 @@ export const client = new PollyClient({
   },
 });
 
-export const voiceId: VoiceId = "Joanna";
+export const voiceId: VoiceId = "Amy";

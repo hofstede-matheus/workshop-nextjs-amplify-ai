@@ -2,7 +2,6 @@ import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 import { client, voiceId } from "../client";
 
 export async function getSpeechMarksFromText(text: string): Promise<string[]> {
-  console.log("called getSpeechMarksFromText");
   const response = await client.send(
     new SynthesizeSpeechCommand({
       OutputFormat: "json",

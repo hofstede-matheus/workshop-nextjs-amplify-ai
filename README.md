@@ -66,3 +66,27 @@ Ela tende a ser melhor ao trabalhar com aws-sdk.
 ## Amazon Polly
 
 O Amazon Polly é um serviço de conversão de texto em fala (Text-to-Speech, TTS) da AWS, que transforma texto escrito em falas naturais de uma maneira customizável e em vários idiomas.
+
+https://aws.amazon.com/polly/getting-started/?nc=sn&loc=5
+
+### Síntese de voz
+
+Existem vários tipos de Engines de voz, mas vamos focar na Neural.
+
+### Speech marks
+
+Permite sincronizar a fala com a exibição de texto em aplicativos multimídia. Retorna um mapa que relaciona cada palavra falada com o instante de tempo em que ela é pronunciada.
+
+### Free tier (12 Meses Gratuitos)
+
+- 5 milhões de caracteres por mês
+
+## Mão na massa!
+
+### O plano
+
+- Configurar o IAM
+- Fazer o deploy do Frontend no Amplify
+- Fazer o deploy do backend no Lambda
+- Automação via Github Actions
+- Utilizar o Cloud watch para ver logs
