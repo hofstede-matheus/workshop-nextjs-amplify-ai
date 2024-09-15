@@ -11,7 +11,7 @@ const TextAreaWithHighlightedWords = forwardRef<
 >(({ wordToSelect }, itemRef) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [text, setText] = useState<string>(
-    "AWS pre-trained artificial intelligence (AI) services easily integrate with your applications to address common use cases such as personalized recommendations, modernizing your contact center, improving safety and security, and increasing customer engagement."
+    "AWS pre-trained AI services to integrate with your applications for various use cases."
   );
 
   useEffect(() => {
