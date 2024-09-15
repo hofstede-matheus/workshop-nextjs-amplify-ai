@@ -1,18 +1,10 @@
-import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
-import { client, voiceId } from "../client";
+import { synthesizeText } from "../../../../services/aws/polly/synthesize";
 
 export async function POST(req: Request): Promise<Response> {
   const { text } = await req.json();
-  const { AudioStream } = await client.send(
-    new SynthesizeSpeechCommand({
-      OutputFormat: "mp3",
-      Text: text,
-      TextType: "text",
-      VoiceId: voiceId,
-    })
-  );
+  const synthesizedText = await synthesizeText(text);
 
-  const webStream = AudioStream?.transformToWebStream();
-
-  return new Response(webStream, { headers: { "Content-Type": "audio/mpeg" } });
+  return new Response(synthesizedText, {
+    headers: { "Content-Type": "audio/mpeg" },
+  });
 }

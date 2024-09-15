@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# workshop-nextjs-amplify-ai - Lance projetos FullStack mais rápido e turbine seu portfólio com AWS Amplify + Next.js + AI
 
-## Getting Started
+## Amazon Web Services (AWS)
 
-First, run the development server:
+A AWS é uma provedora de serviços de infraestrutura em nuvem que disponibiliza soluções que vão desde computação até inteligência artificial e machine learning.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Free Tier
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Possibilidade de experimentar serviços gratuitamente, dado certas condições e restricões.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+https://aws.amazon.com/free/
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Tipos de ofertas
 
-## Learn More
+- Testes Gratuitos - Acesso gratuito por tempo limitado a serviços específicos.
+- 12 Meses Gratuitos - Acesso gratuito a diversos serviços por 12 meses a partir da data de inscrição na AWS.
+- Sempre Gratuito - Acesso gratuito a determinados serviços sem limite de tempo, desde que o uso permaneça dentro dos limites estabelecidos.
 
-To learn more about Next.js, take a look at the following resources:
+### Cuidado!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fique atento nos limites definidos no free tier. Se ultrapassar, será cobrado. Utilize [AWS Pricing Calculator](https://calculator.aws.amazon.com/) para estimar os custos e [Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) para monitorar os gastos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Dicas
 
-## Deploy on Vercel
+- Coloque um cartão virtual temporário
+- Caso algo seja cobrado fora do esperado, dá pra pedir [isenção no suporte](https://patelsandeep88.medium.com/requesting-wave-off-aws-bill-in-free-trial-3aeb465cb5b7)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### AWS Identity and Access Management (IAM)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+O AWS Identity and Access Management (IAM) é um serviço da AWS que permite gerenciar de forma segura o acesso aos recursos da AWS.
+
+#### Dicas
+
+- Crie usuários com permissões mínimas necessárias
+
+## AWS Amplify
+
+Plataforma (PaaS) para simplificar a criação e implantação de aplicativos full-stack, web e mobile.
+
+Oferece serviços de hosting, autenticação, APIs e armazenamento de dados.
+
+Abstraia a complexidade de configurar e gerenciar infraestrutura, como escalabilidade, disponibilidade, segurança e monitoramento.
+
+Considerado “Firebase” da AWS, mas cá entre a gente eu prefiro o Firebase da Google
+
+### Free tier (12 Meses Gratuitos)
+
+- Build e Deploy: 1.000 minutos de build por mês
+- Armazenamento de dados: 5 GB armazenados por mês
+- Transferência de dados de saída: 15 GB oferecidos por mês
+
+## Amazon Q Developer
+
+O Amazon Q Developer é uma versão específica do assistente de IA generativa da AWS, voltada para desenvolvedores que permite receber sugestões de código, documentação e respostas a perguntas técnicas.
+
+https://aws.amazon.com/q/developer/
