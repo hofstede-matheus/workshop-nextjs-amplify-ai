@@ -13,11 +13,12 @@ interface TimeStampedWord {
 
 export default function Home() {
   const [wordToSelect, setWordToSelect] = useState<string>("");
-  const textAreaWithHighlightedWordsRef = useRef<HTMLTextAreaElement>(null);
+  const [text, setText] = useState<string>(
+    "AWS pre-trained AI services to integrate with your applications for various use cases."
+  );
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const text = textAreaWithHighlightedWordsRef.current?.value;
 
     const speechSynthesisPromise = fetch("/api/aws-polly/synthesize", {
       method: "POST",
@@ -55,8 +56,9 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <TextAreaWithHighlightedWords
-        ref={textAreaWithHighlightedWordsRef}
         wordToSelect={wordToSelect}
+        text={text}
+        setText={setText}
       />
       <form onSubmit={handleSubmit}>
         <button type="submit">Read</button>

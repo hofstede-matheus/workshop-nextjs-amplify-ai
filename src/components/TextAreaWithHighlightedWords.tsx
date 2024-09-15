@@ -1,18 +1,18 @@
-import { forwardRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { findStartAndEndOfWordFromText } from "../app/helpers";
 
-interface ISelectTextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface ISelectTextAreaProps {
   wordToSelect: string;
+  text: string;
+  setText: (text: string) => void;
 }
 
-const TextAreaWithHighlightedWords = forwardRef<
-  HTMLTextAreaElement,
-  ISelectTextAreaProps
->(({ wordToSelect }, itemRef) => {
+export const TextAreaWithHighlightedWords = ({
+  wordToSelect,
+  text,
+  setText,
+}: ISelectTextAreaProps) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
-  const [text, setText] = useState<string>(
-    "AWS pre-trained AI services to integrate with your applications for various use cases."
-  );
 
   useEffect(() => {
     if (!isInputFocused) {
@@ -43,15 +43,6 @@ const TextAreaWithHighlightedWords = forwardRef<
     }
   }
 
-  function findStartAndEndOfWordFromText(
-    text: string,
-    word: string
-  ): [number, number] {
-    const start = text.indexOf(word);
-    const end = start + word.length;
-    return [start, end];
-  }
-
   function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     setText(event.target.value);
   }
@@ -63,15 +54,12 @@ const TextAreaWithHighlightedWords = forwardRef<
   return (
     <textarea
       onChange={handleChange}
+      onClick={handleClick}
       id="text-box"
       value={text}
       style={{ minWidth: "50vw", minHeight: "30vh" }}
-      onClick={handleClick}
-      ref={itemRef}
     />
   );
-});
-
-TextAreaWithHighlightedWords.displayName = "TextAreaWithHighlightedWords";
+};
 
 export default TextAreaWithHighlightedWords;
