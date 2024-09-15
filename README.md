@@ -54,3 +54,15 @@ Considerado “Firebase” da AWS, mas cá entre a gente eu prefiro o Firebase d
 O Amazon Q Developer é uma versão específica do assistente de IA generativa da AWS, voltada para desenvolvedores que permite receber sugestões de código, documentação e respostas a perguntas técnicas.
 
 https://aws.amazon.com/q/developer/
+
+Ela tende a ser melhor ao trabalhar com aws-sdk.
+
+### Free tier (Sempre Gratuito)
+
+- Sugestões de código: Incluso
+- Chat: 50 interações por mês
+- Scan de vulnerabilidades e qualidade de código: 50 por mês
+
+## Amazon Polly
+
+O Amazon Polly é um serviço de conversão de texto em fala (Text-to-Speech, TTS) da AWS, que transforma texto escrito em falas naturais de uma maneira customizável e em vários idiomas.
