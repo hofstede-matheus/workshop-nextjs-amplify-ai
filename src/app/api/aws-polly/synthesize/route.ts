@@ -1,4 +1,4 @@
-import { SynthesizeSpeechComman } from "@aws-sdk/client-polly";
+import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 import { client } from "../client";
 
 export async function POST(req: Request): Promise<Response> {

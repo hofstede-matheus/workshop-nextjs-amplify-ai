@@ -10,7 +10,7 @@ const TextAreaWithHighlightedWords = forwardRef<
   ISelectTextAreaProps
 >(({ wordToSelect }, itemRef) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
-  const [text, setText] = useState<string>("This text has NOT been updated.");
+  const [text, setText] = useState<string>("Explore AWS AI services");
 
   useEffect(() => {
     if (!isInputFocused) {
