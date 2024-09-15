@@ -1,5 +1,5 @@
 import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
-import { client } from "../client";
+import { client, voiceId } from "../client";
 
 export async function POST(req: Request): Promise<Response> {
   const { text } = await req.json();
@@ -8,7 +8,7 @@ export async function POST(req: Request): Promise<Response> {
       OutputFormat: "mp3",
       Text: text,
       TextType: "text",
-      VoiceId: "Joanna",
+      VoiceId: voiceId,
     })
   );
 

@@ -1,5 +1,5 @@
 import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
-import { client } from "../client";
+import { client, voiceId } from "../client";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request): Promise<Response> {
@@ -9,7 +9,7 @@ export async function POST(req: Request): Promise<Response> {
       OutputFormat: "json",
       Text: text,
       TextType: "text",
-      VoiceId: "Joanna",
+      VoiceId: voiceId,
       SpeechMarkTypes: ["word"],
     })
   );

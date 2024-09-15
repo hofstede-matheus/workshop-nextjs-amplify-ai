@@ -1,7 +1,7 @@
 "use client";
 import TextAreaWithHighlightedWords from "../components/TextAreaWithHighlightedWords";
 import styles from "./page.module.css";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 interface TimeStampedWord {
   time: number;

@@ -7,11 +7,11 @@ interface ISelectTextAreaProps {
   setText: (text: string) => void;
 }
 
-export const TextAreaWithHighlightedWords = ({
+export default function TextAreaWithHighlightedWords({
   wordToSelect,
   text,
   setText,
-}: ISelectTextAreaProps) => {
+}: ISelectTextAreaProps) {
   const [isInputFocused, setIsInputFocused] = useState(false);
 
   useEffect(() => {
@@ -60,6 +60,4 @@ export const TextAreaWithHighlightedWords = ({
       style={{ minWidth: "50vw", minHeight: "30vh" }}
     />
   );
-};
-
-export default TextAreaWithHighlightedWords;
+}
