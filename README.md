@@ -87,17 +87,9 @@ Permite sincronizar a fala com a exibição de texto em aplicativos multimídia.
 
 - Por que Next.js?
 - Resumo do projeto
-  - Página inicial
-  - Componente `TextAreaWithHighlightedWords`
-  - Rotas da API
-  - Camada de serviço
+- Integrar com o AWS Polly
 - Configurar o IAM
 - Configurar o e fazer o deploy Amplify
-  - Criar o projeto
-  - Configurar envs, detalhe do Next.js
-- Integrar com o AWS Polly
-  - Sintetizar o texto em fala
-  - Obter as speech marks
 - Testar
 - Implementar feature de extrair texto de uma imagem
 
@@ -154,6 +146,73 @@ Aqui é onde a mágica acontece, a camada de serviço é responsável por se com
 - `src/services/aws/polly/synthesize`
 - `src/services/aws/polly/speech-marks`
 
+### Integrar com o AWS Polly
+
+Mão no código!
+
+Em `src/services/aws/polly`, vou criar um arquivo client.ts para encapsular a lógica de comunicação com o AWS Polly.
+
+```ts
+import { PollyClient, VoiceId } from "@aws-sdk/client-polly";
+
+export const client = new PollyClient({
+  region: "us-west-2",
+  credentials: {
+    accessKeyId: process.env.POLLY_ACCESS_KEY_ID || "",
+    secretAccessKey: process.env.POLLY_SECRET_ACCESS_KEY || "",
+  },
+});
+
+export const voiceId: VoiceId = "Amy";
+```
+
+Vamos utilizar duas funcionalidades do AWS Polly, SynthesizeSpeechCommand e GetSpeechMarksCommand, logo camos criar um servio para cada uma, `synthesize/index.ts` e `speech-marks/index.ts`.
+
+```ts
+import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
+import { client, voiceId } from "../client";
+
+export async function synthesizeText(
+  text: string
+): Promise<ReadableStream | undefined> {
+  const { AudioStream } = await client.send(
+    new SynthesizeSpeechCommand({
+      OutputFormat: "mp3",
+      Text: text,
+      TextType: "text",
+      VoiceId: voiceId,
+    })
+  );
+
+  return AudioStream?.transformToWebStream();
+}
+```
+
+```ts
+import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
+import { client, voiceId } from "../client";
+
+export async function getSpeechMarksFromText(text: string): Promise<string[]> {
+  const response = await client.send(
+    new SynthesizeSpeechCommand({
+      OutputFormat: "json",
+      Text: text,
+      TextType: "text",
+      VoiceId: voiceId,
+      SpeechMarkTypes: ["word"],
+    })
+  );
+
+  const stringStream = await response.AudioStream?.transformToString();
+  const parsedResult = stringStream
+    ?.split("\n")
+    ?.filter((line) => line !== "")
+    .map((line) => JSON.parse(line)) as string[];
+
+  return parsedResult;
+}
+```
+
 ### Configurar o IAM
 
 Vamos criar um usuário com permissões mínimas necessárias para acessar o AWS Polly.
@@ -173,6 +232,8 @@ Clique em "Security credentials" e crie um novo access key (Other)
 Salve o Access key ID e Secret access key, essas informações são sensíveis e não serão exibidas novamente
 
 Adicione as credenciais no arquivo `.env.local`
+
+Já dá pra testar localmente, só rodar `npm run dev`
 
 ### Configurar e fazer o deploy Amplify
 
@@ -196,3 +257,11 @@ build:
         - npm run build
 (...)
 ```
+
+Em "Advanced settings", adicione as variáveis de ambiente `POLLY_ACCESS_KEY_ID` e `POLLY_SECRET` com os valores das credenciais do IAM
+
+Clique em "Next" e "Save and deploy"
+
+### Testar
+
+Acesse a URL gerada pelo Amplify e teste o projeto
