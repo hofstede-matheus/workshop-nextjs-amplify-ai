@@ -85,8 +85,114 @@ Permite sincronizar a fala com a exibição de texto em aplicativos multimídia.
 
 ### O plano
 
+- Por que Next.js?
+- Resumo do projeto
+  - Página inicial
+  - Componente `TextAreaWithHighlightedWords`
+  - Rotas da API
+  - Camada de serviço
 - Configurar o IAM
-- Fazer o deploy do Frontend no Amplify
-- Fazer o deploy do backend no Lambda
-- Automação via Github Actions
-- Utilizar o Cloud watch para ver logs
+- Configurar o e fazer o deploy Amplify
+  - Criar o projeto
+  - Configurar envs, detalhe do Next.js
+- Integrar com o AWS Polly
+  - Sintetizar o texto em fala
+  - Obter as speech marks
+- Testar
+- Implementar feature de extrair texto de uma imagem
+
+### Combinados
+
+- Esse workshop vai ser gravado
+- O código está no Github
+- Logo, não precisa acompanhar o que eu estou fazendo, pode atrapalhar
+
+### Conta AWS
+
+Bem fácil de fazer, só precisa de um cartão de crédito
+
+Se tiver dúvidas, [tem esse vídeo no Youtube](https://www.youtube.com/watch?v=UKrYlHzcAjY) que explica bem
+
+### Por que Next.js?
+
+No [último workshop](https://github.com/hofstede-matheus/workshop-amplify-lambda), utilizei React (SPA) e Node.js (API REST), fazendo o deploy no Amplify e AWS Lambda, respectivamente, vale a pena também abordar Amplify com Next.js (SSR).
+
+Como para integrar com o AWS Polly, precisamos conectar através de uma Service Account, o Next.js é uma boa escolha, pois podemos fazer a chamada no server-side.
+
+Quis me desafiar e aprender mais sobre Next.js, pois é uma tecnologia que está em alta e que eu não tenho tanto domínio e acabo trabalhando mais no Backend no dia a dia.
+
+### Resumo do projeto
+
+#### Página inicial
+
+Coisa simples, um textarea e um botão para enviar o texto.
+
+Ao enviar o texto, duas requisições são feitas:
+
+- Uma para a API do Next.js, que chama a camada de serviço para sintetizar o texto em fala
+- Outra para a API do Next.js, que chama a camada de serviço para obter as speech marks
+
+Assim que todas as requisições são concluídas, o áudio é reproduzido e o texto é destacado conforme a fala.
+
+#### Componente `TextAreaWithHighlightedWords`
+
+Componente que recebe o texto e as speech marks e destaca as palavras conforme a fala.
+
+Fiz uma pequena gambiarra para fazer o destaque da palavra, onde utilizo uma API do browser para selecionar o texto em uma determinada range.
+
+#### Rotas da API
+
+Utilizo a funcionalidade de [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) para fazer APIs internas no Next.js.
+
+- `POST /api/aws-polly/synthesize` - Sintetiza o texto em fala e retorna um áudio
+- `POST /api/aws-polly/speech-marks` - Obtém as speech marks do texto
+
+#### Camada de serviço
+
+Aqui é onde a mágica acontece, a camada de serviço é responsável por se comunicar com o AWS Polly e retornar o áudio e as speech marks.
+
+- `src/services/aws/polly/synthesize`
+- `src/services/aws/polly/speech-marks`
+
+### Configurar o IAM
+
+Vamos criar um usuário com permissões mínimas necessárias para acessar o AWS Polly.
+
+Uma Access Key é uma combinação de um Access Key ID e um Secret Access Key, que são usados para autenticar programaticamente na AWS.
+
+Acesse o [IAM](https://console.aws.amazon.com/iamv2/home#/users) e clique em "Create user"
+
+Preencha o nome do usuário e selecione "Attach policies directly"
+
+Pesquise por "AmazonPollyFullAccess" e selecione como policy
+
+Salve e acesse o usuário criado
+
+Clique em "Security credentials" e crie um novo access key (Other)
+
+Salve o Access key ID e Secret access key, essas informações são sensíveis e não serão exibidas novamente
+
+Adicione as credenciais no arquivo `.env.local`
+
+### Configurar e fazer o deploy Amplify
+
+Acesse o [Amplify Console](https://console.aws.amazon.com/amplify/home) e clique em "Create new app"
+
+Selecione o repositório do Github e autorize a conexão
+
+O Next.js vai ser detectado automaticamente
+
+O Next.js precisa de um arquivo `.env.production` para funcionar, então vamos fazer um pequeno ajuste no build, pois as variáveis de ambiente são só disponíveis na build.
+
+https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+
+Selecione "Edit YML file" e modifique o build para:
+
+```yml
+(...)
+build:
+      commands:
+        - env | grep -e POLLY_ACCESS_KEY_ID -e POLLY_SECRET_ACCESS_KEY >> .env.production
+        - npm run build
+(...)
+```
