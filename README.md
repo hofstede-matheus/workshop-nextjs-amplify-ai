@@ -91,7 +91,7 @@ Permite sincronizar a fala com a exibição de texto em aplicativos multimídia.
 - Configurar o IAM
 - Configurar o e fazer o deploy Amplify
 - Testar
-- Implementar feature de extrair texto de uma imagem
+- Amazon Q
 
 ### Combinados
 
@@ -265,3 +265,36 @@ Clique em "Next" e "Save and deploy"
 ### Testar
 
 Acesse a URL gerada pelo Amplify e teste o projeto
+
+### Amazon Q
+
+Cansei de programar, vamos pedir ajuda para a Amazon Q pra implementar a funcionalidade de extrair texto de uma imagem.
+
+Assim como o ChatGPT, ele tem um chat que podemos fazer perguntas técnicas. Além disso digitando `/dev` ele inicia o modo "Amazon Q Developer Agent", que faz alterações no código a partir de um prompt.
+
+Vamos testar isso:
+
+```
+Given the structure that the project is following: Route Handlers for each funcionality the app has, and a service folder with each service, eg, speech-marks and synthesize, add a new Amazon Textract service to get text from images uploaded in a form inside the main page of the application. Create all route handlers, services and forms necessary for this.
+```
+
+Enquanto ele faz as alterações, vamos conversar se a Inteligência Artificial vai roubar nossos empregos.
+
+Criar uma service account com a permissão `AmazonTextractFullAccess`
+
+### Chegando ao fim...
+
+#### O que eu faria melhor?
+
+- Cache das requisições
+
+  - Tentei utilizar o cache do Next.js, mas ele não funciona com POST requests, nem com GET requests com query params
+  - Servios de IA são caros, então fazer o cache de respostas idênticas é uma boa prática
+
+- Arquitetura Event-Driven
+
+  - O Polly possibilita salvar tasks no Amazon S3
+  - Utilizar o Amazon EventBridge para disparar eventos quando alguma task é salva no S3
+  - Publicar eventos no AWS AppSync para atualizar o front-end com o link para o áudio e as speech marks
+
+#### Dúvidas?
