@@ -6,32 +6,32 @@ A AWS é uma provedora de serviços de infraestrutura em nuvem que disponibiliza
 
 ## Free Tier
 
-Possibilidade de experimentar serviços gratuitamente, dado certas condições e restricões.
+Possibilidade de experimentar serviços gratuitamente, dadas certas condições e restrições.
 
 https://aws.amazon.com/free/
 
 ### Tipos de ofertas
 
-- Testes Gratuitos - Acesso gratuito por tempo limitado a serviços específicos.
-- 12 Meses Gratuitos - Acesso gratuito a diversos serviços por 12 meses a partir da data de inscrição na AWS.
-- Sempre Gratuito - Acesso gratuito a determinados serviços sem limite de tempo, desde que o uso permaneça dentro dos limites estabelecidos.
+- Testes Gratuitos: Acesso gratuito, por tempo limitado, a serviços específicos.
+- 12 Meses Gratuitos: Acesso gratuito a diversos serviços por 12 meses a partir da data de inscrição na AWS.
+- Sempre Gratuito: Acesso gratuito a determinados serviços sem limite de tempo, desde que o uso permaneça dentro dos limites estabelecidos.
 
 ### Cuidado!
 
-Fique atento nos limites definidos no free tier. Se ultrapassar, será cobrado. Utilize [AWS Pricing Calculator](https://calculator.aws.amazon.com/) para estimar os custos e [Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) para monitorar os gastos.
+Fique atento aos limites definidos no free tier. Se ultrapassar, será cobrado. Utilize o [AWS Pricing Calculator](https://calculator.aws.amazon.com/) para estimar os custos e os [Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) para monitorar os gastos.
 
 ### Dicas
 
-- Coloque um cartão virtual temporário
-- Caso algo seja cobrado fora do esperado, dá pra pedir [isenção no suporte](https://patelsandeep88.medium.com/requesting-wave-off-aws-bill-in-free-trial-3aeb465cb5b7)
+- Utilize um cartão virtual temporário.
+- Caso algo seja cobrado fora do esperado, é possível pedir [isenção no suporte](https://patelsandeep88.medium.com/requesting-wave-off-aws-bill-in-free-trial-3aeb465cb5b7).
 
 ### AWS Identity and Access Management (IAM)
 
-O AWS Identity and Access Management (IAM) é um serviço da AWS que permite gerenciar de forma segura o acesso aos recursos da AWS.
+O AWS Identity and Access Management (IAM) é um serviço da AWS que permite gerenciar, de forma segura, o acesso aos recursos da AWS.
 
 #### Dicas
 
-- Crie usuários com permissões mínimas necessárias
+- Crie usuários com as permissões mínimas necessárias.
 
 ## AWS Amplify
 
@@ -39,9 +39,9 @@ Plataforma (PaaS) para simplificar a criação e implantação de aplicativos fu
 
 Oferece serviços de hosting, autenticação, APIs e armazenamento de dados.
 
-Abstraia a complexidade de configurar e gerenciar infraestrutura, como escalabilidade, disponibilidade, segurança e monitoramento.
+Abstrai a complexidade de configurar e gerenciar infraestrutura, como escalabilidade, disponibilidade, segurança e monitoramento.
 
-Considerado “Firebase” da AWS, mas cá entre a gente eu prefiro o Firebase da Google
+Considerado “Firebase” da AWS, mas, cá entre nós, eu prefiro o Firebase do Google.
 
 ### Free tier (12 Meses Gratuitos)
 
@@ -51,31 +51,31 @@ Considerado “Firebase” da AWS, mas cá entre a gente eu prefiro o Firebase d
 
 ## Amazon Q Developer
 
-O Amazon Q Developer é uma versão específica do assistente de IA generativa da AWS, voltada para desenvolvedores que permite receber sugestões de código, documentação e respostas a perguntas técnicas.
+O Amazon Q Developer é uma versão específica do assistente de IA generativa da AWS, voltada para desenvolvedores, que permite receber sugestões de código, documentação e respostas a perguntas técnicas.
 
 https://aws.amazon.com/q/developer/
 
-Ela tende a ser melhor ao trabalhar com aws-sdk.
+Tende a ser melhor ao trabalhar com AWS SDK.
 
 ### Free tier (Sempre Gratuito)
 
-- Sugestões de código: Incluso
+- Sugestões de código: Inclusas
 - Chat: 50 interações por mês
 - Scan de vulnerabilidades e qualidade de código: 50 por mês
 
 ## Amazon Polly
 
-O Amazon Polly é um serviço de conversão de texto em fala (Text-to-Speech, TTS) da AWS, que transforma texto escrito em falas naturais de uma maneira customizável e em vários idiomas.
+O Amazon Polly é um serviço de conversão de texto em fala (Text-to-Speech, TTS) da AWS que transforma texto escrito em falas naturais de maneira customizável e em vários idiomas.
 
 https://aws.amazon.com/polly/getting-started/?nc=sn&loc=5
 
 ### Síntese de voz
 
-Existem vários tipos de Engines de voz, mas vamos focar na Neural.
+Existem vários tipos de engines de voz, mas vamos focar na neural.
 
 ### Speech marks
 
-Permite sincronizar a fala com a exibição de texto em aplicativos multimídia. Retorna um mapa que relaciona cada palavra falada com o instante de tempo em que ela é pronunciada.
+Permite sincronizar a fala com a exibição de texto em aplicativos multimídia. Retorna um mapa que relaciona cada palavra falada ao instante em que ela é pronunciada.
 
 ### Free tier (12 Meses Gratuitos)
 
@@ -83,46 +83,47 @@ Permite sincronizar a fala com a exibição de texto em aplicativos multimídia.
 
 ## Mão na massa!
 
-### O plano
+### O Plano
 
 - Por que Next.js?
-- Resumo do projeto
+- Resumo do Projeto
 - Integrar com o AWS Polly
 - Configurar o IAM
-- Configurar o e fazer o deploy Amplify
+- Configurar e fazer o deploy no Amplify
 - Testar
 - Amazon Q
 
 ### Combinados
 
-- Esse workshop vai ser gravado
-- O código está no Github
-- Logo, não precisa acompanhar o que eu estou fazendo, pode atrapalhar
+- Este workshop será gravado.
+- O código está no GitHub.
+- Portanto, não é necessário acompanhar o que estou fazendo; isso pode atrapalhar.
+- Você pode interromper a qualquer momento para tirar dúvidas.
 
 ### Conta AWS
 
-Bem fácil de fazer, só precisa de um cartão de crédito
+É bem fácil de fazer; você só precisa de um cartão de crédito.
 
-Se tiver dúvidas, [tem esse vídeo no Youtube](https://www.youtube.com/watch?v=UKrYlHzcAjY) que explica bem
+Se tiver dúvidas, [tem este vídeo no YouTube](https://www.youtube.com/watch?v=UKrYlHzcAjY) que explica bem.
 
 ### Por que Next.js?
 
-No [último workshop](https://github.com/hofstede-matheus/workshop-amplify-lambda), utilizei React (SPA) e Node.js (API REST), fazendo o deploy no Amplify e AWS Lambda, respectivamente, vale a pena também abordar Amplify com Next.js (SSR).
+No [último workshop](https://github.com/hofstede-matheus/workshop-amplify-lambda), utilizei React (SPA) e Node.js (API REST), fazendo o deploy no Amplify e na AWS Lambda, respectivamente. Vale a pena também abordar o Amplify com Next.js (SSR).
 
-Como para integrar com o AWS Polly, precisamos conectar através de uma Service Account, o Next.js é uma boa escolha, pois podemos fazer a chamada no server-side.
+Como para integrar com o AWS Polly precisamos conectar através de uma Service Account, o Next.js é uma boa escolha, pois podemos fazer a chamada no lado do servidor.
 
-Quis me desafiar e aprender mais sobre Next.js, pois é uma tecnologia que está em alta e que eu não tenho tanto domínio e acabo trabalhando mais no Backend no dia a dia.
+Quis me desafiar e aprender mais sobre Next.js, pois é uma tecnologia que está em alta e da qual eu não tenho tanto domínio, acabando por trabalhar mais no backend no dia a dia.
 
 ### Resumo do projeto
 
-#### Página inicial
+#### Página Inicial
 
-Coisa simples, um textarea e um botão para enviar o texto.
+Coisa simples: um textarea e um botão para enviar o texto.
 
 Ao enviar o texto, duas requisições são feitas:
 
-- Uma para a API do Next.js, que chama a camada de serviço para sintetizar o texto em fala
-- Outra para a API do Next.js, que chama a camada de serviço para obter as speech marks
+- Uma para a API do Next.js, que chama a camada de serviço para sintetizar o texto em fala.
+- Outra para a API do Next.js, que chama a camada de serviço para obter as marcas de fala.
 
 Assim que todas as requisições são concluídas, o áudio é reproduzido e o texto é destacado conforme a fala.
 
@@ -130,18 +131,18 @@ Assim que todas as requisições são concluídas, o áudio é reproduzido e o t
 
 Componente que recebe o texto e as speech marks e destaca as palavras conforme a fala.
 
-Fiz uma pequena gambiarra para fazer o destaque da palavra, onde utilizo uma API do browser para selecionar o texto em uma determinada range.
+Fiz uma pequena gambiarra para destacar a palavra, onde utilizo uma API do browser para selecionar o texto em uma determinada range.
 
 #### Rotas da API
 
-Utilizo a funcionalidade de [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) para fazer APIs internas no Next.js.
+Utilizo a funcionalidade de [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) para criar APIs internas no Next.js.
 
 - `POST /api/aws-polly/synthesize` - Sintetiza o texto em fala e retorna um áudio
 - `POST /api/aws-polly/speech-marks` - Obtém as speech marks do texto
 
 #### Camada de serviço
 
-Aqui é onde a mágica acontece, a camada de serviço é responsável por se comunicar com o AWS Polly e retornar o áudio e as speech marks.
+Aqui é onde a mágica acontece: A camada de serviço é responsável por se comunicar com o AWS Polly e retornar o áudio e as speech marks.
 
 - `src/services/aws/polly/synthesize`
 - `src/services/aws/polly/speech-marks`
@@ -150,7 +151,7 @@ Aqui é onde a mágica acontece, a camada de serviço é responsável por se com
 
 Mão no código!
 
-Em `src/services/aws/polly`, vou criar um arquivo client.ts para encapsular a lógica de comunicação com o AWS Polly.
+Em `src/services/aws/polly`, vou criar o arquivo `client.ts` para encapsular a lógica de comunicação com o AWS Polly.
 
 ```ts
 import { PollyClient, VoiceId } from "@aws-sdk/client-polly";
@@ -166,7 +167,7 @@ export const client = new PollyClient({
 export const voiceId: VoiceId = "Amy";
 ```
 
-Vamos utilizar duas funcionalidades do AWS Polly, SynthesizeSpeechCommand e GetSpeechMarksCommand, logo camos criar um servio para cada uma, `synthesize/index.ts` e `speech-marks/index.ts`.
+Vamos utilizar duas funcionalidades do AWS Polly: SynthesizeSpeechCommand e GetSpeechMarksCommand. Logo, podemos criar um serviço para cada uma: `synthesize/index.ts` e `speech-marks/index.ts`.
 
 ```ts
 import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
@@ -215,9 +216,9 @@ export async function getSpeechMarksFromText(text: string): Promise<string[]> {
 
 ### Configurar o IAM
 
-Vamos criar um usuário com permissões mínimas necessárias para acessar o AWS Polly.
+Vamos criar um usuário com as permissões mínimas necessárias para acessar o AWS Polly.
 
-Uma Access Key é uma combinação de um Access Key ID e um Secret Access Key, que são usados para autenticar programaticamente na AWS.
+Uma Access Key é uma combinação de um Access Key ID e de um Secret Access Key, que são usados para se autenticar programaticamente na AWS.
 
 Acesse o [IAM](https://console.aws.amazon.com/iamv2/home#/users) e clique em "Create user"
 
@@ -229,7 +230,7 @@ Salve e acesse o usuário criado
 
 Clique em "Security credentials" e crie um novo access key (Other)
 
-Salve o Access key ID e Secret access key, essas informações são sensíveis e não serão exibidas novamente
+Salve o Access Key ID e o Secret Access Key. Essas informações são sensíveis e não serão exibidas novamente.
 
 Adicione as credenciais no arquivo `.env.local`
 
@@ -268,17 +269,17 @@ Acesse a URL gerada pelo Amplify e teste o projeto
 
 ### Amazon Q
 
-Cansei de programar, vamos pedir ajuda para a Amazon Q pra implementar a funcionalidade de extrair texto de uma imagem.
+Cansei de programar. Vamos pedir ajuda à Amazon Q para implementar a funcionalidade de extrair texto de uma imagem.
 
 Assim como o ChatGPT, ele tem um chat que podemos fazer perguntas técnicas. Além disso digitando `/dev` ele inicia o modo "Amazon Q Developer Agent", que faz alterações no código a partir de um prompt.
 
 Vamos testar isso:
 
 ```
-Given the structure that the project is following: Route Handlers for each funcionality the app has, and a service folder with each service, eg, speech-marks and synthesize, add a new Amazon Textract service to get text from images uploaded in a form inside the main page of the application. Create all route handlers, services and forms necessary for this.
+Given the structure that the project is following: Route Handlers for each functionality the app has, and a service folder with each service, e.g, speech-marks and synthesize, add a new Amazon Textract service to get text from images uploaded in a form inside the main page of the application. Create all route handlers, services and forms necessary for this.
 ```
 
-Enquanto ele faz as alterações, vamos conversar se a Inteligência Artificial vai roubar nossos empregos.
+Enquanto ele faz as alterações, vamos conversar sobre se a Inteligência Artificial vai roubar nossos empregos.
 
 Criar uma service account com a permissão `AmazonTextractFullAccess`
 
